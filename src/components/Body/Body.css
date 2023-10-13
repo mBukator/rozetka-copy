@@ -1,0 +1,38 @@
+.layout_with_sidebar {
+    display: flex;
+    flex-direction: row;    
+    min-height: 100vh;
+    margin-left: 10px;
+    margin-right: 10px;    
+    background-color: #000000;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px 0 20px 12px;
+    position: sticky;
+}
+.menu-categories {
+}
+
+.menu-categories li {
+    list-style: none;
+}
+
+.menu-categories a {
+    width: 100%;
+    display: inline-block;
+    color: #3e77aa;
+    cursor: pointer;
+    text-decoration: none;
+
+    font-size: 1rem;
+}
+
+
+
+
+
+.content {
+}

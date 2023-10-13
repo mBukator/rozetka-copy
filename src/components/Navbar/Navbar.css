@@ -1,0 +1,162 @@
+/*! HEADER TOP*/
+nav .header-top .rekl {
+  width: 100%;
+  background-color: #D0FF01;
+}
+nav .header-top .rekl a img {
+  width: 50%;
+  height: 2rem;
+  display: block;
+  margin: auto;
+
+}
+.header-top {
+  padding: 0;
+  margin: 0;
+}
+
+/*! HEADER BOTTOM*/
+.header-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 10px;
+  position: relative;
+  background-color: #221F1F;  
+}
+
+
+.hb-wrap {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr max-content;
+  justify-content: space-around;
+}
+
+
+#menu {
+  color: #fff;
+  display: block;
+  margin: auto;
+  font-size: 1.5rem;
+  padding-right: 20px;
+  margin-left: 20px;
+}
+
+
+/** LOGO **/
+.logo-catalog {
+  display: flex;
+}
+.logo {
+  display: block;
+  margin: auto;
+}
+
+
+/** CATALOG **/
+.catalog-button {
+  width: 8rem;
+  margin-left: 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 10px;
+}
+.catalog-button, .btn-content i, .btn-content span {
+  background-color: #4E4C4C;
+  color: #fff;
+  font-size: 1rem;
+}
+.catalog-button .btn-content i {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+
+/** SEARCH **/
+.search, .cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search input {
+  padding-left: 35px;
+  height: 30px;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+.search i {
+  top: 0px;
+  left: 25px;
+  z-index: 1;
+  float: left;
+  position: relative;
+  color: #808080;
+}
+
+.header-bottom .hb-wrap .search input {
+  width: 100%;
+}
+
+
+/** CART **/
+.cart {
+  background-color: #1d1d1d;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+}
+.cart i{
+  padding-right: 2rem;
+}
+.cart i:not(:last-child){
+  padding-left: 1.5rem;
+}
+.cart span {
+  padding-right: 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+#mobile {
+  display: none;
+}
+
+
+
+@media screen and (max-width:769px) {
+  .header-top {
+    display: none;
+  }
+  .logo {
+    display: none;
+  }
+  .cart {
+    width: 50px;
+    background: none;
+    font-size: 1.5rem;
+  }
+  .cart i {
+    margin: 0;
+    padding: 0;
+  }
+  .cart i:first-child {
+    display: none;
+  }
+  .cart i:last-child {
+    display: block;
+    margin: auto;
+  }
+
+  .catalog-button {
+    display: none;
+  }
+  #mobile {
+    display: block;
+    margin: auto;
+    font-size: 1.5rem;
+  }
+
+}
