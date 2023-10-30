@@ -1,37 +1,69 @@
-import React from 'react'
-import './Body.css'
+import React from 'react';
+import './Body.css';
+import './MoreGoods.css';
+import goods from '../../util/data';
+import categories from '../../util/categories';
+import ItemTile from '../ItemTile/ItemTile';
+import CategoryItem from '../CategoryItem/CategoryItem';
 
-function Body() {
+import Information from '../../img/categories-icon/icon-information.png';
+import Message from '../../img/categories-icon/icon-paper-plane.png';
+import Delivery from '../../img/categories-icon/icon-delivery.png';
+
+const Body = ({ handleAddToCart }) => {
   return (
-    <div className='layout_with_sidebar'>
-      <main className='content'>
-      
-      </main>      
-      <aside className='sidebar'>
-        <div className='menu-categories'>
+    <div className="layout_with_sidebar">
+      <aside className="sidebar desktop-only">
+        <div className="menu-categories">
           <ul>
-            <li><a href='index.html'>Ноутбуки та комп'ютери</a></li>
-            <li><a href='index.html'>Смартфони, ТВ і електроніка</a></li>
-            <li><a href='index.html'>Товари для геймерів</a></li>
-            <li><a href='index.html'>Побутова техніка</a></li>
-            <li><a href='index.html'>Товари для дому</a></li>
-            <li><a href='index.html'>Інструменти та автотовари</a></li>
-            <li><a href='index.html'>Сантехніка та ремонт</a></li>
-            <li><a href='index.html'>Дача, сад і город</a></li>
-            <li><a href='index.html'>Спорт і захоплення</a></li>
-            <li><a href='index.html'>Одяг, взуття та прикраси</a></li>
-            <li><a href='index.html'>Краса та здоров’я</a></li>
-            <li><a href='index.html'>Дитячі товари</a></li>
-            <li><a href='index.html'>Зоотовари</a></li>
-            <li><a href='index.html'>Офіс, школа, книги</a></li>
-            <li><a href='index.html'>Алкогольні напої та продукти</a></li>
-            <li><a href='index.html'>Нашим захисникам</a></li>
-            <li><a href='index.html'>Прайсопад знижок до 50%</a></li>
+            {categories.map((category) => (
+              <CategoryItem key={category.id} category={category}  />
+            ))}
           </ul>
         </div>
-      </aside>
-    </div>
-  )
-}
 
-export default Body
+        <div className="dovidk-centr">
+          <a href="index.html">
+            <span>
+              <img src={Information} alt="icon" />
+            </span>
+            Довідковий центр
+          </a>
+        </div>
+        <div className="chat-rozetka">
+          <a href="index.html">
+            <span>
+              <img src={Message} alt="icon" />
+            </span>
+            Чат з ROZETKA
+          </a>
+        </div>
+        <div className="delivery-point">
+          <a href="index.html">
+            <span>
+              <img src={Delivery} alt="icon" />
+            </span>
+            Точки видачі Rozetka
+          </a>
+        </div>
+      </aside>
+
+      <main className="main-content">
+        <div className="goods">
+          <div className="more-goods">
+            <div className="goods-container">
+              <h2>Більше товарів для вибору</h2>
+              <section className="more-goods__grid">
+                {goods.map((item) => (
+                  <ItemTile key={item.id} item={item} handleAddToCart={handleAddToCart} />
+                ))}
+              </section>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default Body;

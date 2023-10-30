@@ -5,3 +5,8 @@
 body {
     font-family: Roboto, sans-serif;
 }
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
