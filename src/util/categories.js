@@ -1,4 +1,3 @@
-import Household from '../img/categories-icon/icon-cleaning-spray.png';
 
 
 
