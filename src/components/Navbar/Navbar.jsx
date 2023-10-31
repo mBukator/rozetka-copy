@@ -10,50 +10,51 @@ const Navbar = ({setShow, size}) => {
     setClicked(!clicked);
   };
   return (
-      <nav>
-        <div className="header-top">
-          <div className="rekl">
-            <a href='index.html'>
-              <img src={rekl} alt='rekl'/>
-            </a>
-          </div>
+      <nav className='header'>
+        <div className="header__ad">
+          <a href='index.html' className='ad__link'>
+            <img src={rekl} alt='rekl' className='ad__img'/>
+          </a>
         </div>
 
-        <div className="header-bottom">
-          <div className="hb-wrap">
-            <div id="menu" onClick={handleClick}>
-              <i id="bar" className={clicked ? 'fas fa-times' : 'fas fa-bars'}>
-              </i>
+        <div className="header__main">
+          <div className="main__wrapper">
+            <div onClick={handleClick} className='main__menu'>
+              <i id="bar" className={clicked ? 'fas fa-times' : 'fas fa-bars'} />
             </div>
-            <div className="logo-catalog">
-              <div className="logo" onClick={() => setShow(true)}>
+            <div className="main__logo-catalog">
+              <div className="main__logo" onClick={() => setShow(true)}>
                 <a href="index.html">
-                  <img src={logo} alt="" />
+                  <img src={logo} alt="Rozetka" />
                 </a>
               </div>
-              <div id="mobile" className="logo-alt">
+              <div className="main__alt-logo">
                 <a href="index.html">
-                  <img src={logoAlt} alt="" />
+                  <img src={logoAlt} alt="Rozetka" />
                 </a>
               </div>
 
-              <button className="catalog-button">
-                <div className="btn-content">
-                  <i className="fa-solid fa-folder-open" />
-                  <span>Каталог</span>
+              <button className="catalog__button">
+                <div className="button__content">
+                  <i className="fa-solid fa-folder-open button__icon" />
+                  <span className='button__title'>Каталог</span>
                 </div>
               </button>
             </div>
 
-            <div className="search">
-              <i className="fa-solid fa-magnifying-glass" />
-              <input type="text" placeholder="Пошук" name="search" className="search-input" />
+            <div className="main__search">
+              <i className="fa-solid fa-magnifying-glass search__icon" />
+              <input type="text" placeholder="Пошук" name="search" className="search__input" />
             </div>
 
-            <div className="cart">
-              <i className="fa-sharp fa-solid fa-user"></i>
-              <i className="fa-solid fa-cart-shopping" onClick={() => setShow(false)}></i>
-              <span className='cart-count'>{size}</span>
+            <div className='user-cart__wrapper'>
+              <div className="user">
+                <i className="fa-sharp fa-solid fa-user user__icon"></i>
+              </div>
+              <div className="cart">
+                <i className="fa-solid fa-cart-shopping cart__icon" onClick={() => setShow(false)}></i>
+                <span className='cart__count'>{size}</span>
+              </div>
             </div>
           </div>
         </div>

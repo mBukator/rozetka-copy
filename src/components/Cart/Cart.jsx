@@ -22,29 +22,29 @@ const Cart = ({cart, setCart, handleChange}) => {
 
 
     return (
-        <article>
+        <div className='cart__menu'>
           {cart.map((item) => (
-            <div className="cart_box" key={item.id}>
-              <div className="cart_img">
-                <img src={item.img} alt="" />
-                <p>{item.title}</p>
+          <div className="product" key={item.id}>
+              <div className="product__view">
+                <img className='product__img' src={item.img} alt="" />
+                <p className='product__title'>{item.title}</p>
               </div>
-              <div>
-                <button onClick={() => handleChange(item, 1)}>+</button>
-                <button>{item.amount}</button>
-                <button onClick={() => handleChange(item, -1)}>-</button>
+              <div className='product__quantity'>
+                <button className='quantity__increase' onClick={() => handleChange(item, 1)}>+</button>
+                <button className='quantity__amount'>{item.amount}</button>
+                <button className='quantity__decrease' onClick={() => handleChange(item, -1)}>-</button>
               </div>
-              <div>
-                <span>{item.salesPrice}</span>
-                <button onClick={() => handleRemove(item.id)}>Remove</button>
+              <div className='product__info'>
+                <span className='product__price'>{item.salesPrice}</span>
+                <button className='product__remove' onClick={() => handleRemove(item.id)}>Remove</button>
               </div>
             </div>
           ))}
           <div className="total">
-            <span>Загальна сума: </span>
-            <span>{price} ₴</span>
+            <span className='total__title'>Загальна сума: </span>
+            <span className='total__price'>{price} ₴</span>
           </div>
-        </article>
+        </div>
       );
     
 }
