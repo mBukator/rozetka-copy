@@ -3,7 +3,7 @@ import './Body.css';
 import './MoreGoods.css';
 import goods from '../../util/data';
 import categories from '../../util/categories';
-import ItemTile from '../ItemTile/ItemTile';
+import ItemCard from '../ItemCard/ItemCard';
 import CategoryItem from '../CategoryItem/CategoryItem';
 
 import Information from '../../img/categories-icon/icon-information.png';
@@ -55,7 +55,7 @@ const Body = ({ handleAddToCart }) => {
               <h2>Більше товарів для вибору</h2>
               <section className="more-goods__grid">
                 {goods.map((item) => (
-                  <ItemTile key={item.id} item={item} handleAddToCart={handleAddToCart} />
+                  <ItemCard key={item.id} item={item} handleAddToCart={handleAddToCart} />
                 ))}
               </section>
             </div>
