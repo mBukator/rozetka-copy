@@ -3,6 +3,7 @@ import logo from '../../img/logo.svg';
 import logoAlt from '../../img/logo-alt.svg';
 import rekl from '../../img/369638665.jpg';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({setShow, size}) => {
   const [clicked, setClicked] = useState(false)
@@ -23,15 +24,15 @@ const Navbar = ({setShow, size}) => {
               <i id="bar" className={clicked ? 'fas fa-times' : 'fas fa-bars'} />
             </div>
             <div className="main__logo-catalog">
-              <div className="main__logo" onClick={() => setShow(true)}>
-                <a href="index.html">
+              <div className="main__logo">
+                <Link to="/">
                   <img src={logo} alt="Rozetka" />
-                </a>
+                </Link>
               </div>
               <div className="main__alt-logo">
-                <a href="index.html">
+                <Link to="/">
                   <img src={logoAlt} alt="Rozetka" />
-                </a>
+                </Link>
               </div>
 
               <button className="catalog__button">
@@ -52,8 +53,10 @@ const Navbar = ({setShow, size}) => {
                 <i className="fa-sharp fa-solid fa-user user__icon"></i>
               </div>
               <div className="cart">
-                <i className="fa-solid fa-cart-shopping cart__icon" onClick={() => setShow(false)}></i>
-                <span className='cart__count'>{size}</span>
+                <Link to='/cart'>
+                  <i className="fa-solid fa-cart-shopping cart__icon" />
+                  <span className='cart__count'>{size}</span>
+                </Link>
               </div>
             </div>
           </div>

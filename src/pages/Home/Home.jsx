@@ -1,16 +1,30 @@
-import React from 'react';
-import './Body.css';
-import './MoreGoods.css';
-import goods from '../../util/data';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+import ItemCard from '../../components/ItemCard/ItemCard';
+import CategoryItem from '../../components/CategoryItem/CategoryItem';
+
 import categories from '../../util/categories';
-import ItemCard from '../ItemCard/ItemCard';
-import CategoryItem from '../CategoryItem/CategoryItem';
+
+import './Home.css';
 
 import Information from '../../img/categories-icon/icon-information.png';
 import Message from '../../img/categories-icon/icon-paper-plane.png';
 import Delivery from '../../img/categories-icon/icon-delivery.png';
+import Skeleton from './Skeleton';
 
-const Body = ({ handleAddToCart }) => {
+const Home = ({ handleAddToCart }) => {
+  const [goods, setGoods] = useState([])
+  const [isLoading, setIsLoading] = useState(true)  //lazy-loading
+
+  useEffect(() => {
+    axios.get("https://65501dfa7d203ab6626d92b6.mockapi.io/goods")
+    .then((response)=>{
+      setGoods(response.data);
+      setIsLoading(false)   //lazy-loading
+    })
+  }, [])
+
   return (
     <div className="layout_with_sidebar">
       <aside className="sidebar desktop-only">
@@ -54,9 +68,11 @@ const Body = ({ handleAddToCart }) => {
             <div className="goods-container">
               <h2>Більше товарів для вибору</h2>
               <section className="more-goods__grid">
-                {goods.map((item) => (
-                  <ItemCard key={item.id} item={item} handleAddToCart={handleAddToCart} />
-                ))}
+                {
+                  isLoading
+                  ? [...new Array(5)].map(() => <Skeleton/>)
+                  : goods.map((item) => (<ItemCard key={item.id} item={item} handleAddToCart={handleAddToCart} />))
+                }
               </section>
             </div>
           </div>
@@ -66,4 +82,4 @@ const Body = ({ handleAddToCart }) => {
   );
 };
 
-export default Body;
+export default Home;

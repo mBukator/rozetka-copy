@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Body from './components/Body/Body';
 // import Footer from './components/Footer/Footer';
-import Cart from './components/Cart/Cart';
+import Cart from './pages/Cart/Cart';
+import Home from './pages/Home/Home';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
-  const [show, setShow] = useState(true);
   const [cart, setCart] = useState([]);
 
   const handleAddToCart = (item) => {
@@ -27,12 +27,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar setShow={setShow} size={cart.length} />
-      {show ? (
-        <Body handleAddToCart={handleAddToCart} />
-      ) : (
-        <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
-      )}
+      <Navbar size={cart.length} />
+      <Routes>
+        <Route path='/' element=<Home handleAddToCart={handleAddToCart} /> />
+        <Route path='/cart' element=<Cart cart={cart} setCart={setCart} handleChange={handleChange}/> />
+        <Route path='*' element=<h1>404</h1> /> {/* !!!!!!!! */}
+      </Routes>
     </div>
   );
 }

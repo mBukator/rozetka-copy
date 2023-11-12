@@ -76,7 +76,19 @@ ul img {
 }
 
 
-
+.goods-container {
+    width: inherit;
+    padding: 5px;
+}
+.more-goods__grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.more-goods__grid .tile {
+    list-style: none;
+}
 
 
 
