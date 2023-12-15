@@ -5,7 +5,7 @@ import { deleteProduct } from '../../redux/actions/index';
 
 import { FaTrash } from "react-icons/fa";
 
-import EmptyFolder from '../../components/EmptyFolder/EmptyFolder';
+import EmptyCart from '../../components/EmptyCart/EmptyCart';
 
 import './Cart.css';
 
@@ -36,7 +36,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
 
   return (
     <div className="cart__menu">
-      {state.length === 0 && <EmptyFolder />}
+      {state.length === 0 && <EmptyCart />}
       {state.length !== 0 && state.map(cartItems)}
     </div>
   );

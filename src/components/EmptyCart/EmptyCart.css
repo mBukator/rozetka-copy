@@ -1,0 +1,17 @@
+.empty-cart__container {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.empty-cart__title {
+    color: #222;
+    font-size: 4rem;
+}
+.empty-cart__link {
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #A5F703;
+    text-decoration: none;
+}
