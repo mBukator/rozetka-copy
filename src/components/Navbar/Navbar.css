@@ -113,6 +113,9 @@
 .user__icon, .cart__icon {
   cursor: pointer;
 }
+.cart__icon {
+  color: #fff;
+}
 .user {
   padding-left: 2vw;
   padding-right: 2vw;
