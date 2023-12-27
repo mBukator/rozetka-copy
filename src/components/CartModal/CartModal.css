@@ -2,10 +2,36 @@
     margin: 0;
     padding: 0;
   }
-  
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999999999999999;
+  }
+
+  .loginModalContainer {
+    max-width: 70vw;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  .modal-top-part {
+    padding: 14px;
+    border-bottom: 2px solid #e3e3e3;
+  }
   .cart__menu {
-    width: 60vw;
-    margin: auto;
+    padding: 14px;
+    max-height: 60vh;
+    overflow-y: scroll;
+    
   }
   
   .cart-product__img {
@@ -26,7 +52,6 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    border-bottom: 2px solid #eeeeee;
     padding-bottom: 5px;
   }
   

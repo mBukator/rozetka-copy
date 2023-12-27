@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProduct } from '../../redux/actions/index';
 
-import { FaTrash } from "react-icons/fa";
+import { FaTrash } from 'react-icons/fa';
 
 import EmptyCart from '../../components/EmptyCart/EmptyCart';
 
-import './Cart.css';
+import { RxCross1 } from 'react-icons/rx';
 
-const Cart = ({ cart, setCart, handleChange }) => {
+import './CartModal.css';
+
+const CartModal = ({ open, onClose }) => {
   const state = useSelector((state) => state.handleCart);
   const dispatch = useDispatch();
+
+  if (!open) return null;
 
   const handleRemoveProduct = (item) => {
     dispatch(deleteProduct(item));
@@ -35,11 +39,25 @@ const Cart = ({ cart, setCart, handleChange }) => {
   };
 
   return (
-    <div className="cart__menu">
-      {state.length === 0 && <EmptyCart />}
-      {state.length !== 0 && state.map(cartItems)}
+    <div className="overlay" onClick={onClose}>
+      <div
+        className="loginModalContainer"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}>
+        <div className="modal-top-part">
+          <h2>Кошик</h2>
+          <p className="closeBtn">
+            <RxCross1 onClick={onClose} size={20} />
+          </p>
+        </div>
+        <div className="cart__menu">
+          {state.length === 0 && <EmptyCart />}
+          {state.length !== 0 && state.map(cartItems)}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Cart;
+export default CartModal;
