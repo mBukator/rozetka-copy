@@ -3,6 +3,7 @@ import { RxCross1 } from 'react-icons/rx';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import './LoginModal.css';
+import Button from '../ui/Button/Button';
 
 function LoginModal({ open, onClose }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,9 +42,7 @@ function LoginModal({ open, onClose }) {
               </span>
             </div>
           </form>
-          <div className="btnContainer">
-            <button className="loginBtn">Увійти</button>
-          </div>
+          <Button text={"Увійти"} />
         </div>
         <div className="right"></div>
       </div>
