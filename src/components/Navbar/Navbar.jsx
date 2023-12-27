@@ -4,18 +4,30 @@ import logoAlt from '../../img/logo-alt.svg';
 import rekl from '../../img/369638665.jpg';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginModal from '../LoginModal/LoginModal';
+import CartModal from '../CartModal/CartModal';
+import { changeCurrency } from '../../redux/actions';
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openCartModal, setOpenCartModal] = useState(false);
 
   const state = useSelector((state) => state.handleCart);
+
+  const dispatch = useDispatch();
+  const selectedCurrency = useSelector((state) => state.handleChangeCurrency.currency);
+
+  const handleCurrencyChange = (event) => {
+    const newCurrency = event.target.value;
+    dispatch(changeCurrency(newCurrency));
+  };
 
   const handleClick = () => {
     setClicked(!clicked);
   };
+
   return (
     <>
       <nav className="header">
@@ -30,6 +42,7 @@ const Navbar = () => {
             <div onClick={handleClick} className="main__menu">
               <i id="bar" className={clicked ? 'fas fa-times' : 'fas fa-bars'} />
             </div>
+
             <div className="main__logo-catalog">
               <div className="main__logo">
                 <Link to="/">
@@ -41,7 +54,6 @@ const Navbar = () => {
                   <img src={logoAlt} alt="Rozetka" />
                 </Link>
               </div>
-
               <button className="catalog__button">
                 <div className="button__content">
                   <i className="fa-solid fa-folder-open button__icon" />
@@ -56,20 +68,25 @@ const Navbar = () => {
             </div>
 
             <div className="user-cart__wrapper">
-              <div className="user" onClick={() => setOpenModal(true)}>
+              <select value={selectedCurrency} onChange={handleCurrencyChange}>
+                <option value="USD">USD</option>
+                <option value="UAH">UAH</option>
+              </select>
+              <div className="user" onClick={() => setOpenLoginModal(true)}>
                 <i className="fa-sharp fa-solid fa-user user__icon"></i>
               </div>
               <div className="cart">
-                <Link to="/cart">
+                <div onClick={() => setOpenCartModal(true)}>
                   <i className="fa-solid fa-cart-shopping cart__icon" />
                   <span className="cart__count">{state.length}</span>
-                </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </nav>
-      <LoginModal open={openModal} onClose={() => setOpenModal(false)} />
+      <LoginModal open={openLoginModal} onClose={() => setOpenLoginModal(false)} />
+      <CartModal open={openCartModal} onClose={() => setOpenCartModal(false)} />
     </>
   );
 };
