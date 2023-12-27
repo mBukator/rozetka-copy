@@ -4,9 +4,15 @@
 }
 body {
     font-family: Roboto, sans-serif;
+    overflow: hidden;
 }
 
 img {
     overflow-clip-margin: content-box;
     overflow: clip;
 }
+
+
+::-webkit-scrollbar {
+    width: 0; /* Скрыть полосу прокрутки в веб-браузерах на основе Chromium (Google Chrome, Opera) */
+  }
