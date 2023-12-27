@@ -11,3 +11,17 @@ export const deleteProduct = (product) => {
     payload: product,
   };
 };
+
+export const changeCurrency = (currency) => {
+  return {
+    type: 'CHANGE_CURRENCY',
+    payload: currency,
+  };
+};
+
+export const changeExchangeRate = (exchangeRate) => {
+  return {
+    type: 'CHANGE_EXCHANGE_RATE',
+    payload: exchangeRate,
+  };
+};
