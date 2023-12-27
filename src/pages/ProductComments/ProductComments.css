@@ -1,0 +1,22 @@
+.product-review {
+    max-width: 1356px;
+    margin: auto;
+    padding: 25px;
+}
+
+.product-review__container {
+    width: 60vw;
+    border: 1px solid #e9e9e9;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.review__comment textarea {
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    outline: none;
+}
+
+.comments li {
+    list-style: none;
+}
