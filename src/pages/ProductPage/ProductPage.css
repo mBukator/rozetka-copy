@@ -1,0 +1,31 @@
+.product__page {
+    max-width: 1356px;
+    margin: auto;
+    padding: 25px;
+}
+.product-info__pages {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.product-info__pages li:not(:last-child) {
+    padding-right: 1.5rem;
+}
+.product-info__pages li a {     
+    color: #222;
+    text-decoration: none;
+}
+.product__main {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+.product__img {
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.product__img img {
+    width: 350px;
+    height: 425px;
+}
