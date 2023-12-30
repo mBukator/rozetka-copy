@@ -9,3 +9,11 @@
 .comment__wrapper {
     padding: 10px;
 }
+
+.comm__label {
+    font-weight: bold;
+}
+
+.comm__text {
+    padding: 15px 0;
+}
