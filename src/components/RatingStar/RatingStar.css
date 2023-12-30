@@ -1,0 +1,33 @@
+.star-rate {
+    margin-bottom: 8px;
+}
+.stars__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+.star-rate__title {
+    margin-bottom: 8px;
+}
+.single-star {
+    list-style: none;
+    align-items: center;
+    text-align: center;
+}
+.star {
+    color: #D2D2D2;
+    cursor: pointer;
+}
+
+.single-star__label {
+    display: block;
+    color: #D2D2D2
+}
+
+.single-star:hover {
+    .star {
+        color: gold;
+    }
+    .single-star__label {
+        color: #111;
+    }
+}
