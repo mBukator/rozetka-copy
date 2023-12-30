@@ -1,77 +1,15 @@
 .layout_with_sidebar {
     display: flex;
     flex-direction: row;    
-    min-height: 100vh;
-    margin-left: 25px;
-    margin-right: 40px;    
+    min-height: 100vh;  
+    overflow: hidden;  
 }
-
-
-/* Sidebar */
-.sidebar {
-    width: 25vw;
-    background-color: #fff;
-    padding: 20px 0 20px 12px;
-    position: sticky;
-    border-right: 1px solid #e9e9e9;
-}
-
-
-.menu-categories {
-    border-bottom: 1px solid #e9e9e9;
-}
-.menu-categories li {
-    list-style: none;
-    padding-bottom: 15px;
-
-}
-
-.menu-categories ul li img {
-    width: 18px;
-    height: 18px;
-    padding-right: 10px;
-}
-
-
-:has(.menu-categories, .dovidk-centr, .chat-rozetka, .delivery-point) a:hover {
-    text-decoration: underline;
-    color: red;
-}
-.menu-categories a, .dovidk-centr a, .chat-rozetka a, .delivery-point a {
-    width: 100%;
-    display: inline-block;
-    color: #3e77aa;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 1rem;
-}
-.dovidk-centr a, .chat-rozetka a, .delivery-point a {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e9e9e9;
-}
-.menu-categories ul li img, .dovidk-centr img, .chat-rozetka img, .delivery-point img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    padding-right: 10px;
-} 
-
-
-/* Category Icons */
-ul li a {
-    display: flex;
-}
-ul img {
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
-}
-
 
 /* Main Content */
 .main-content {
     width: 100%;
+    /* height: 100vh; */
+    /* overflow-y: scroll; */
     padding: 20px 0 20px 20px;
 }
 
