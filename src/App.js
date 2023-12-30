@@ -9,16 +9,19 @@ import ProductCharacteristics from './pages/ProductCharacteristics/ProductCharac
 import ProductComments from './pages/ProductComments/ProductComments';
 
 import './App.css';
+import ProductPageLayout from './components/ui/ProductPageLayout/ProductPageLayout';
 
 const App = () => {
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element=<Home /> />
-        <Route path="/product/:id" element=<ProductPage /> />
-        <Route path={`/product/:id/characteristics`} element=<ProductCharacteristics /> />
-        <Route path={`/product/:id/comments`} element=<ProductComments /> />
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductPageLayout />} >
+          <Route index element={<ProductPage />} />
+          <Route path={'characteristics'} element={<ProductCharacteristics/>} />
+          <Route path={'comments'} element={<ProductComments/>} />
+        </Route>
         <Route path="*" element=<h1>404</h1> /> {/* !!!!!!!! */}
       </Routes>
     </div>
