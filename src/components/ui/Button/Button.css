@@ -2,7 +2,6 @@
     display: flex;
 }
 .button {
-    width: 100%;
     margin: 0.5rem;
     padding: 14px 0;
     background-color: #00A046;
