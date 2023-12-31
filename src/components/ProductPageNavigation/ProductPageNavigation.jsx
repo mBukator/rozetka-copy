@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ProductPageNavigation.css'
+import './ProductPageNavigation.css';
 
-export default function ProductPageNavigation({id}) {
+export default function ProductPageNavigation({ id }) {
   return (
-    <div>
+    <div className='page-navigation__container'>
       <ul className="product-info__pages">
         <li>
-          <Link to={''}>Усе про товар</Link>
+          <Link to={`/product/${id}`}>Усе про товар</Link>
         </li>
         <li>
           <Link to={`/product/${id}/characteristics`}>Характеристики</Link>
@@ -16,13 +16,13 @@ export default function ProductPageNavigation({id}) {
           <Link to={`/product/${id}/comments`}>Відгуки</Link>
         </li>
         <li>
-          <Link to={''}>Питання</Link>
+          <Link to={`/product/${id}/questions`}>Питання</Link>
         </li>
         <li>
-          <Link to={''}>Фото</Link>
+          <Link to={`/product/${id}/photos`}>Фото</Link>
         </li>
         <li>
-          <Link to={''}>Купують разом</Link>
+          <Link to={`/product/${id}/related`}>Купують разом</Link>
         </li>
       </ul>
     </div>
