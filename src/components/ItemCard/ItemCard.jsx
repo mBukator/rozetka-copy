@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import fetchExchangeRate from '../../api/exchangeRateAPI';
 import { changeExchangeRate } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import convertToSelectedCurrency from '../../util/convertToSelectedCurrency'
 
 const ItemCard = ({ item }) => {
   const { id, title, price, image } = item;
@@ -23,10 +24,6 @@ const ItemCard = ({ item }) => {
     };
     fetchExchangeRateAndUpdateRedux();
   }, [selectedCurrency, dispatch]);
-
-  const convertToSelectedCurrency = (price, exchangeRate, selectedCurrency) => {
-    return selectedCurrency === 'UAH' ? (price / exchangeRate).toFixed(2) : price.toFixed(2);
-  };
 
   return (
     <div className="tile">
