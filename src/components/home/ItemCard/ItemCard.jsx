@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './ItemCard.css';
 import { Link } from 'react-router-dom';
-import fetchExchangeRate from '../../api/exchangeRateAPI';
-import { changeExchangeRate } from '../../redux/actions';
+import fetchExchangeRate from '../../../api/exchangeRateAPI';
+import { changeExchangeRate } from '../../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import convertToSelectedCurrency from '../../util/convertToSelectedCurrency'
+import convertToSelectedCurrency from '../../../util/convertToSelectedCurrency';
+
+import styles from './ItemCard.module.css';
 
 const ItemCard = ({ item }) => {
   const { id, title, price, image } = item;
@@ -26,22 +27,22 @@ const ItemCard = ({ item }) => {
   }, [selectedCurrency, dispatch]);
 
   return (
-    <div className="tile">
+    <div className={styles.tile}>
       <div className="tile__inner">
         <Link className="tovar" to={`/product/${id}`}>
-          <img src={image} alt="" />
+          <img className={styles.tovar__image} src={image} alt="" />
         </Link>
-        <Link className="tile__title" to={`/product/${id}`}>
+        <Link className={styles.tile__title} to={`/product/${id}`}>
           {title}
         </Link>
-        <div className="prices">
-          <div className="price__old">
+        <div className={styles.prices}>
+          <div className={styles.price__old}>
             <span>
               {convertToSelectedCurrency(price, exchangeRate, selectedCurrency)}{' '}
               {selectedCurrency === 'UAH' ? '₴' : '$'}
             </span>
           </div>
-          <div className="price__new">
+          <div className={styles.price__new}>
             <span>
               {convertToSelectedCurrency(price, exchangeRate, selectedCurrency)}{' '}
               {selectedCurrency === 'UAH' ? '₴' : '$'}

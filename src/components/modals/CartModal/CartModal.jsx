@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteProduct } from '../../redux/actions/index';
+import { deleteProduct } from '../../../redux/actions'; 
 
 import { FaTrash } from 'react-icons/fa';
 
-import EmptyCart from '../../components/EmptyCart/EmptyCart';
+import EmptyCart from '../../EmptyCart/EmptyCart';
 
 import { RxCross1 } from 'react-icons/rx';
 
-import './CartModal.css';
+import styles from './CartModal.module.css';
 
 const CartModal = ({ open, onClose }) => {
   const state = useSelector((state) => state.handleCart);
@@ -23,14 +23,14 @@ const CartModal = ({ open, onClose }) => {
 
   const cartItems = (cartItem) => {
     return (
-      <div className="product" key={cartItem.id}>
-        <div className="product__view">
-          <img className="cart-product__img" src={cartItem.image} alt="" />
-          <p className="product__title">{cartItem.title}</p>
+      <div className={styles.product} key={cartItem.id}>
+        <div className={styles.product__view}>
+          <img className={styles.product__img} src={cartItem.image} alt="" />
+          <p className={styles.product__title}>{cartItem.title}</p>
         </div>
         <div className="product__info">
-          <span className="product__price">{cartItem.price}</span>
-          <button className="product__remove" onClick={() => handleRemoveProduct(cartItem)}>
+          <span className={styles.product__price}>{cartItem.price}</span>
+          <button className={styles.product__remove} onClick={() => handleRemoveProduct(cartItem)}>
             <FaTrash /> Видалити
           </button>
         </div>
@@ -39,19 +39,19 @@ const CartModal = ({ open, onClose }) => {
   };
 
   return (
-    <div className="overlay" onClick={onClose}>
+    <div className={styles.overlay} onClick={onClose}>
       <div
-        className="loginModalContainer"
+        className={styles.container}
         onClick={(e) => {
           e.stopPropagation();
         }}>
-        <div className="modal-top-part">
+        <div className={styles.panel}>
           <h2>Кошик</h2>
-          <p className="closeBtn">
+          <p className={styles.closeBtn}>
             <RxCross1 onClick={onClose} size={20} />
           </p>
         </div>
-        <div className="cart__menu">
+        <div className={styles.cart__menu}>
           {state.length === 0 && <EmptyCart />}
           {state.length !== 0 && state.map(cartItems)}
         </div>

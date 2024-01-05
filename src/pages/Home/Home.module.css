@@ -6,7 +6,7 @@
 }
 
 /* Main Content */
-.main-content {
+.main_content {
     width: 100%;
     /* height: 100vh; */
     /* overflow-y: scroll; */
@@ -14,30 +14,16 @@
 }
 
 
-.goods-container {
+.goods_container {
     width: inherit;
     padding: 5px;
 }
-.more-goods__grid {
+.goods__grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.more-goods__grid .tile {
+.goods__grid .tile {
     list-style: none;
 }
-
-
-
-.desktop-only {
-    display: block
-}
-
-
-@media screen and (max-width:769px) {
-    .desktop-only {
-        display: none;
-    }
-  
-  }

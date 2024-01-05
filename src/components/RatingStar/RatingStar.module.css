@@ -1,14 +1,14 @@
-.star-rate {
+.container {
     margin-bottom: 8px;
 }
 .stars__wrapper {
     display: flex;
     justify-content: space-evenly;
 }
-.star-rate__title {
+.title {
     margin-bottom: 8px;
 }
-.single-star {
+.single_star {
     list-style: none;
     align-items: center;
     text-align: center;
@@ -18,16 +18,16 @@
     cursor: pointer;
 }
 
-.single-star__label {
+.label {
     display: block;
     color: #D2D2D2
 }
 
-.single-star:hover {
+.single_star:hover {
     .star {
         color: gold;
     }
-    .single-star__label {
+    .label {
         color: #111;
     }
 }

@@ -1,37 +1,34 @@
 import React from 'react';
-import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
-import { AiOutlineStar } from 'react-icons/ai';
-import './RatingStar.css';
+import { FaStar } from 'react-icons/fa';
+import styles from './RatingStar.module.css';
 
 export default function RatingStar() {
   return (
-    <div className="star-rate">
-      <p className="star-rate__title">Оцініть товар</p>
-      <div className="stars__container">
-        <ul className="stars__wrapper">
-          <li className="single-star">
-            <FaStar size={35} className="star" />
-            <span className='single-star__label'>Погано</span>
+    <div className={styles.container}>
+      <p className={styles.title}>Оцініть товар</p>
+      <div>
+        <ul className={styles.stars__wrapper}>
+          <li className={styles.single_star}>
+            <FaStar size={35} className={styles.star} />
+            <span className={styles.label}>Погано</span>
           </li>
-          <li className="single-star">
-            <FaStar size={35} className="star" />
-            <span className='single-star__label'>Так собі</span>
+          <li className={styles.single_star}>
+            <FaStar size={35} className={styles.star} />
+            <span className={styles.label}>Так собі</span>
           </li>
-          <li className="single-star">
-            <FaStar size={35} className="star" />
-            <span className='single-star__label'>Нормально</span>
+          <li className={styles.single_star}>
+            <FaStar size={35} className={styles.star} />
+            <span className={styles.label}>Нормально</span>
           </li>
-          <li className="single-star">
-            <FaStar size={35} className="star" />
-            <span className='single-star__label'>Добре</span>
+          <li className={styles.single_star}>
+            <FaStar size={35} className={styles.star} />
+            <span className={styles.label}>Добре</span>
           </li>
-          <li className="single-star">
-            <FaStar size={35} className="star" />
-            <span className='single-star__label'>Чудово</span>
+          <li className={styles.single_star}>
+            <FaStar size={35} className={styles.star} />
+            <span className={styles.label}>Чудово</span>
           </li>
         </ul>
-        {/* <FaStarHalfAlt />
-      <AiOutlineStar /> */}
       </div>
     </div>
   );

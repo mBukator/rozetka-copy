@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CommentsContext } from '../../context/CommentsContext';
-import './ProductComment.css';
+
+import styles from './ProductComment.module.css';
 
 function ProductComment() {
   const { comments } = useContext(CommentsContext);
@@ -10,15 +11,15 @@ function ProductComment() {
       <h3>Коментарі:</h3>
       <ul>
         {comments.map((comment) => (
-          <div key={comment.id} className="comment__container">
-            <div className="comment__wrapper">
-              <p className="comm__text">{comment.text}</p>
+          <div key={comment.id} className={styles.container}>
+            <div className={styles.wrapper}>
+              <p className={styles.comm__text}>{comment.text}</p>
               <p>
-                <span className="comm__label">Переваги: </span>
+                <span className={styles.comm__label}>Переваги: </span>
                 {comment.advantages}
               </p>
               <p>
-                <span className="comm__label">Недоліки: </span>
+                <span className={styles.comm__label}>Недоліки: </span>
                 {comment.disadvantages}
               </p>
             </div>
