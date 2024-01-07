@@ -1,67 +1,65 @@
 .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 999999999999;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 999999999999;
 }
 .container {
-    max-width: 600px;
-    width: 100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
+	max-width: 600px;
+	width: 100%;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	padding: 25px;
+	border-radius: 10px;
 }
-
 
 .close {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    color: #797878;
-    cursor: pointer;
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	color: #797878;
+	cursor: pointer;
 }
 .panel {
-    width: 100%;
-    border-bottom: 2px solid #eee;
-    margin-bottom: 10px;
+	width: 100%;
+	border-bottom: 2px solid #eee;
+	margin-bottom: 10px;
 }
-
 
 .form {
-    padding-right: 10px;
-    width: 50%;
-    border-right: 2px solid #eee;
+	padding-right: 10px;
+	width: 50%;
+	border-right: 2px solid #eee;
 }
 .input__container {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.75rem;
-    color: #797878;
+	display: flex;
+	flex-direction: column;
+	font-size: 0.75rem;
+	color: #797878;
 }
 .label {
-    padding-bottom: 5px;
+	padding-bottom: 5px;
 }
 .input {
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #797878;
+	height: 40px;
+	border-radius: 10px;
+	border: 1px solid #797878;
 }
 .showPassword {
-    cursor: pointer;
-    position: relative;
-    top: -33px;
-    right: -90%;
-    width: 25px;
-    height: 25px;
+	cursor: pointer;
+	position: relative;
+	top: -33px;
+	right: -90%;
+	width: 25px;
+	height: 25px;
 }
 .login {
-    padding-top: 10px;
-    padding-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 20px;
 }

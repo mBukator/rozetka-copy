@@ -1,28 +1,26 @@
-import React, { useState } from 'react'
 import { Alert, Button, Col, Divider, Form, Input, Modal, Row } from 'antd'
 import Title from 'antd/es/typography/Title'
+import React, { useState } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 
-function LoginModal({ click, open, onClose }) {
+function SignUpModal({ open, onClose, click }) {
 	const [error, setError] = useState('')
 	const [loading, setLoading] = useState(false)
 
-	const { login, currentUser } = useAuth()
+	const { signup } = useAuth()
 
 	const onSubmit = async (values) => {
+		if (values.password !== values.passwordConfirm) {
+			return setError('Passwords do not match')
+		}
+
 		try {
 			setError('')
 			setLoading(true)
-			await login(values.email, values.password)
+			await signup(values.email, values.password)
 			onClose()
 		} catch (error) {
-			console.error('Error during login: ', error)
-
-			if (error.code === 'auth/invalid-credential') {
-				setError('Неправильна ел.пошта або пароль.')
-			} else {
-				setError('Помилка входу. Будь ласка, спробуйте ще раз.')
-			}
+			setError('Failed to create an account ;(')
 		}
 		setLoading(false)
 	}
@@ -30,7 +28,7 @@ function LoginModal({ click, open, onClose }) {
 	return (
 		<>
 			<Modal
-				title={<Title level={3}>Вхід</Title>}
+				title={<Title level={3}>Реєстрація</Title>}
 				centered
 				open={open}
 				onCancel={onClose}
@@ -46,7 +44,12 @@ function LoginModal({ click, open, onClose }) {
 							<Form.Item label='Пароль' name='password'>
 								<Input.Password size='large' required />
 							</Form.Item>
-							{error && <Alert message={error} type='error' style={{ marginBottom: 20 }} />}
+							<Form.Item label='Підтвердження паролю' name='passwordConfirm'>
+								<Input.Password size='large' required />
+							</Form.Item>
+							{error.length > 0 ? (
+								<Alert message={error} type='error' style={{ marginBottom: 20 }} />
+							) : null}
 							<Form.Item>
 								<Button
 									size='large'
@@ -55,7 +58,7 @@ function LoginModal({ click, open, onClose }) {
 									block
 									loading={loading}
 									htmlType='submit'>
-									Увійти
+									Зареєструватись
 								</Button>
 							</Form.Item>
 						</Form>
@@ -71,20 +74,18 @@ function LoginModal({ click, open, onClose }) {
 									color: '#3E77AA',
 									cursor: 'pointer',
 								}}>
-								Зареєструватись
+								Увійти
 							</span>
 						</div>
 					</Col>
 					<Col>
 						<Divider type='vertical' style={{ height: '100%' }} />
 					</Col>
-					<Col span={9}>
-						{currentUser ? <div>{currentUser.email}</div> : <div>Not logged in</div>}
-					</Col>
+					<Col span={9}></Col>
 				</Row>
 			</Modal>
 		</>
 	)
 }
 
-export default LoginModal
+export default SignUpModal
