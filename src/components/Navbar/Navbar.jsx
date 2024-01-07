@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrency } from '../../redux/actions';
 
-import LoginModal from '../modals/LoginModal/LoginModal';
 import CartModal from '../modals/CartModal/CartModal';
 
 import logo from '../../img/logo.svg';
@@ -13,6 +12,12 @@ import logoAlt from '../../img/logo-alt.svg';
 import rekl from '../../img/369638665.jpg';
 
 import styles from './Navbar.module.css';
+import AuthModal from '../modals/AuthModal/AuthModal';
+import { useAuth } from '../../context/AuthContext';
+import Drawer from '../Drawer/Drawer';
+import { CSSTransition } from 'react-transition-group';
+import './transition.css'
+
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -24,6 +29,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const selectedCurrency = useSelector((state) => state.handleChangeCurrency.currency);
 
+  const { currentUser } = useAuth();
+
   const handleCurrencyChange = (event) => {
     const newCurrency = event.target.value;
     dispatch(changeCurrency(newCurrency));
@@ -31,6 +38,13 @@ const Navbar = () => {
 
   const handleClick = () => {
     setClicked(!clicked);
+  };
+
+  const showLoginModal = () => {
+    setOpenLoginModal(true);
+  };
+  const hideLoginModal = () => {
+    setOpenLoginModal(false);
   };
 
   return (
@@ -77,9 +91,19 @@ const Navbar = () => {
                 <option value="USD">USD</option>
                 <option value="UAH">UAH</option>
               </select>
-              <div className={styles.user} onClick={() => setOpenLoginModal(true)}>
-                <i className="fa-sharp fa-solid fa-user user__icon"></i>
-              </div>
+              {currentUser ? (
+                // if logged in
+                <div className={styles.user}>
+                  <Link to={'cabinet'}>
+                    <i className="fa-regular fa-rectangle-list"></i>
+                  </Link>
+                </div>
+              ) : (
+                // if not logged in
+                <div className={styles.user} onClick={showLoginModal}>
+                  <i className="fa-sharp fa-solid fa-user user__icon"></i>
+                </div>
+              )}
               <div className={styles.cart}>
                 <div onClick={() => setOpenCartModal(true)}>
                   <i className="fa-solid fa-cart-shopping cart__icon" />
@@ -90,8 +114,11 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <LoginModal open={openLoginModal} onClose={() => setOpenLoginModal(false)} />
+      <AuthModal open={openLoginModal} onClose={hideLoginModal} />
       <CartModal open={openCartModal} onClose={() => setOpenCartModal(false)} />
+      <CSSTransition in={clicked} timeout={500} classNames="drawer" unmountOnExit>
+        <Drawer open={clicked} onClose={() => setClicked(false)} />
+      </CSSTransition>
     </>
   );
 };

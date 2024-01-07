@@ -120,6 +120,9 @@
   padding-left: 2vw;
   padding-right: 2vw;
 }
+.user i {
+  color: #fff;
+}
 .cart {
   position: relative;
   padding-right: 1vw;
@@ -189,3 +192,5 @@
   
 
 }
+
+
