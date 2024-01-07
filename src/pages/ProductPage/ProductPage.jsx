@@ -117,7 +117,6 @@ const ProductPage = () => {
                       {convertToSelectedCurrency(product.price, exchangeRate, selectedCurrency)}
                     </span>
                     <span className={styles.currency}>
-                      {' '}
                       {selectedCurrency === 'UAH' ? '₴' : '$'}
                     </span>
                   </div>
