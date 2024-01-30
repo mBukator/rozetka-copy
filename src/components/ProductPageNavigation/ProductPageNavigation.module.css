@@ -1,0 +1,19 @@
+.page_nav__container {
+    max-width: 1356px;
+    margin: auto;
+    padding: 25px 25px 10px 25px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.product_nav__pages {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+.single_link {
+    padding-right: 1.5rem;
+}
+
+.link {     
+    color: #222;
+    text-decoration: none;
+}

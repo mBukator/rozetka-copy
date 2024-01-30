@@ -1,0 +1,23 @@
+.label {
+    font-size: .75rem;
+    color: #656565;
+    padding-bottom: 10px;
+}
+.one_row {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 10px;
+    border: 1px solid #e9e9e9;
+}
+.comment {
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    outline: none;
+}
+.one_row, .comment {
+    resize: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+}

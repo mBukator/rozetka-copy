@@ -1,0 +1,33 @@
+.container {
+    margin-bottom: 8px;
+}
+.stars__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+.title {
+    margin-bottom: 8px;
+}
+.single_star {
+    list-style: none;
+    align-items: center;
+    text-align: center;
+}
+.star {
+    color: #D2D2D2;
+    cursor: pointer;
+}
+
+.label {
+    display: block;
+    color: #D2D2D2
+}
+
+.single_star:hover {
+    .star {
+        color: gold;
+    }
+    .label {
+        color: #111;
+    }
+}
